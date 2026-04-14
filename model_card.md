@@ -8,15 +8,6 @@ Model Name: ScoreBeats
 
 ## 2. Intended Use  
 
-Describe what your recommender is designed to do and who it is for. 
-
-Prompts:  
-
-- What kind of recommendations does it generate  
-- What assumptions does it make about the user  
-- Is this for real users or classroom exploration  
-
----
 
 Given the user's musical preferences, such as genre and mood, the reccomender will a small catalog and returns the five
 songs that best match what the user described. The system assumes the user can accurately describe their own taste in
@@ -25,16 +16,6 @@ structured terms (e.g., "I want high energy, low acousticness, fast BPM"). It is
 
 ## 3. How the Model Works  
 
-Explain your scoring approach in simple language.  
-
-Prompts:  
-
-- What features of each song are used (genre, energy, mood, etc.)  
-- What user preferences are considered  
-- How does the model turn those into a score  
-- What changes did you make from the starter logic  
-
-Avoid code here. Pretend you are explaining the idea to a friend who does not program.
 
 Let's say you're walking into a record store and hand the clerk a description of your perfect song. The clerk then
 goes through every record in the store and gives each one a score based on how closely it matches your description. The record with the highest score would then go to the top of your pile.
@@ -48,14 +29,6 @@ All the points add up to a score between 0 and 100. The songs are then sorted fr
 
 ## 4. Data  
 
-Describe the dataset the model uses.  
-
-Prompts:  
-
-- How many songs are in the catalog  
-- What genres or moods are represented  
-- Did you add or remove data  
-- Are there parts of musical taste missing in the dataset  
 
 The catalog contains 17 songs loaded from a CSV file. Each row represents one song with a unique ID, title, artist, genre, mood, and
 six numeric audio features. The genres represented are pop, lofi, rock, ambient, jazz, synthwave, indie pop, blues, hip-hop, metal, country,
@@ -71,13 +44,6 @@ There are
 
 ## 5. Strengths  
 
-Where does your system seem to work well  
-
-Prompts:  
-
-- User types for which it gives reasonable results  
-- Any patterns you think your scoring captures correctly  
-- Cases where the recommendations matched your intuition  
 
 The system works best for users whose preferences align with well-represented genres. The Chill Lofi profile serves as the best demonstration of the system’s accuracy. By matching lofi tracks with similar ambient songs, it achieved high scores of 98.14 and 98.03. These scores would resonate well with an actual listener. Additionally, the system provides clear justifications for its rankings, allowing users to easily understand and trust the underlying logic rather than just receiving a standard list they have made themselves.
 
@@ -113,14 +79,6 @@ Users seeking discovery are disadvantaged because the system has no explicit exp
 
 ## 7. Evaluation  
 
-How you checked whether the recommender behaved as expected. 
-
-Prompts:  
-
-- Which user profiles you tested  
-- What you looked for in the recommendations  
-- What surprised you  
-- Any simple tests or comparisons you ran  
 
 
 The User Profiles I tested were High-Energy Pop, Chill Lofi, Deep Intense Rock. 
