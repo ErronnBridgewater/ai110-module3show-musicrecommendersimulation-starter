@@ -174,6 +174,7 @@ def load_songs(csv_path: str) -> List[Dict]:
     with open(csv_path, mode="r", encoding="utf-8", newline="") as csv_file:
         reader = csv.DictReader(csv_file)
         for row in reader:
+            loudness_value = row.get("loudness", "")
             song = {
                 "id": int(row["id"]),
                 "title": row["title"],
@@ -185,7 +186,7 @@ def load_songs(csv_path: str) -> List[Dict]:
                 "valence": float(row["valence"]),
                 "danceability": float(row["danceability"]),
                 "acousticness": float(row["acousticness"]),
-                "loudness": float(row["loudness"]),
+                "loudness": float(loudness_value) if loudness_value not in ("", None) else 0.0,
             }
             songs.append(song)
 
@@ -200,14 +201,14 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     song_genre = str(song.get("genre", "")).strip().lower()
     if user_genre and song_genre:
         if user_genre == song_genre:
-            score += 25.0
-            reasons.append("genre match (+25.0)")
+            score += 12.5
+            reasons.append("genre match (+12.5)")
         elif (
             song_genre in RELATED_GENRES.get(user_genre, set())
             or user_genre in RELATED_GENRES.get(song_genre, set())
         ):
-            score += 18.0
-            reasons.append("related genre (+18.0)")
+            score += 9.0
+            reasons.append("related genre (+9.0)")
 
     user_mood = str(user_prefs.get("mood", "")).strip().lower()
     song_mood = str(song.get("mood", "")).strip().lower()
@@ -223,7 +224,7 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
             reasons.append("adjacent mood (+14.0)")
 
     numeric_specs = {
-        "energy": (15.0, 1.0),
+        "energy": (30.0, 1.0),
         "valence": (15.0, 1.0),
         "danceability": (10.0, 1.0),
         "bpm": (10.0, 150.0),
