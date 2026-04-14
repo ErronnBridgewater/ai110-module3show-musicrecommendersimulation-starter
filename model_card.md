@@ -30,25 +30,18 @@ All the points add up to a score between 0 and 100. The songs are then sorted fr
 ## 4. Data  
 
 
-The catalog contains 17 songs loaded from a CSV file. Each row represents one song with a unique ID, title, artist, genre, mood, and
-six numeric audio features. The genres represented are pop, lofi, rock, ambient, jazz, synthwave, indie pop, blues, hip-hop, metal, country,
-reggaeton, classical, and afrobeats. The moods represented are happy, chill, intense, relaxed, focused, moody, melancholic, confident,
-aggressive, nostalgic, party, serene, and playful.
+The catalog contains 17 songs loaded from a CSV file. Each row represents one song with a unique ID, title, artist, genre, mood, and six numeric audio features. The genres represented are pop, lofi, rock, ambient, jazz, synthwave, indie pop, blues, hip-hop, metal, country, reggaeton, classical, and afrobeats. The moods represented are happy, chill, intense, relaxed, focused, moody, melancholic, confident, aggressive, nostalgic, party, serene, and playful.
 
-No songs were removed from the original dataset, as I only added 7 other songs for testing. The most notable gap was how much each genre covered the songs. Lofi has three
-songs, pop has two, and most other genres have exactly one. Several
-genres and moods like metal, reggaeton, blues, and nostalgic, have only one representative or none at all. The catalog also skews toward Western popular genres
-and does not meaningfully represent global music traditions.
+No songs were removed from the original dataset, as I only added 7 other songs for testing. The most notable gap was how much each genre covered the songs. Lofi has three songs, pop has two, and most other genres have exactly one. Several
+genres and moods like metal, reggaeton, blues, and nostalgic, have only one representative or none at all. The catalog also skews toward Western popular genres and does not meaningfully represent global music traditions.
 
-There are 
 
 ## 5. Strengths  
 
 
 The system works best for users whose preferences align with well-represented genres. The Chill Lofi profile serves as the best demonstration of the system’s accuracy. By matching lofi tracks with similar ambient songs, it achieved high scores of 98.14 and 98.03. These scores would resonate well with an actual listener. Additionally, the system provides clear justifications for its rankings, allowing users to easily understand and trust the underlying logic rather than just receiving a standard list they have made themselves.
 
-The genre and mood tables also captured some non-obvious relationships correctly. Spacewalk Thoughts (ambient) ranking ahead of
-Coffee Shop Stories (jazz) for the Chill Lofi profile surprised me at first, but the reasons output showed that an ambient song with an exactly matching mood outscored a jazz song with only an adjacent mood. This demonstrated that the system working as designed.
+The genre and mood tables also captured some non-obvious relationships correctly. Spacewalk Thoughts (ambient) ranking ahead of Coffee Shop Stories (jazz) for the Chill Lofi profile surprised me at first, but the reasons output showed that an ambient song with an exactly matching mood outscored a jazz song with only an adjacent mood. This demonstrated that the system working as designed.
 
 ---
 

@@ -80,29 +80,37 @@ You can add more tests in `tests/test_recommender.py`.
 
 ## Experiments You Tried
 
-Use this section to document the experiments you ran. For example:
 
-- What happened when you changed the weight on genre from 2.0 to 0.5
-- What happened when you added tempo or valence to the score
-- How did your system behave for different types of users
-
----
+The first test I ran was reconstructing the scores by adding each reason line for a song to ensure the formula was computing as intended. Then I looked for scores in adjacent moods for songs, to confirm if the ADJACENT_MOODS dictionary was being read correctly. 
 
 ## Limitations and Risks
 
-Summarize some limitations of your recommender.
+- The catalog only has 17 songs, so results for mroe underrpresented genres run out 
+  of strong matches quickly and the bottom of the top-5 can feel like 
+  a stretch.
+- The system does not understand lyrics, language, cultural context, 
+  or how a song actually feels to listen to. It only understands its numeric 
+  features.
+- Energy carries a heavy weight (30 pts), so the system can 
+  over-favor high-energy tracks for users who only slightly prefer 
+  them.
+- Genre adjacency and mood relationships go hand in hand. This means 
+  they reflect one person's opinion about which genres are similar 
+  rather than any data-driven measure.
+- The same artist can appear multiple times in the top-5 with no 
+  penalty, since artist diversity is not enforced anywhere in the 
+  scoring logic.
 
-Examples:
-
-- It only works on a tiny catalog
-- It does not understand lyrics or language
-- It might over favor one genre or mood
-
-You will go deeper on this in your model card.
 
 ---
 
 ## Reflection
+
+Working on this project has changed how I viewed reccomendation systems. Before starting, I assumed a recommender was mostly about  finding songs a user would like. By the end, I realized it is really about encoding decisions. Looking what features matter, how much each one weighs, and what counts as "close enough." 
+
+Even in a 17-song catalog, the system consistently gave better results to users whose tastes matched 
+the most represented genres. A user wanting lofi got five strong 
+matches. A user wanting metal got one. The catalog did not treat those  users equally, and the algorithm had no way to notice or correct for  that on its own. That gap between what the system optimizes for and what fairness actually requires is something I will think about differently now. It has helped alot for my perception on bias within programming projects.
 
 Read and complete `model_card.md`:
 
